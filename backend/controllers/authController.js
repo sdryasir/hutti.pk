@@ -5,16 +5,26 @@ const sendToken = require('../utils/jwtToken')
 const sendEmail = require('../utils/sendEmail')
 const crypto = require('crypto')
 const user = require('../models/user')
+const cloudinary = require('cloudinary').v2
 
 exports.registerUser = catchAsyncError(async (req, res, next) => {
+
+    const result = await cloudinary.uploader.upload(req.body.avatar, {
+        folder: 'avatars',
+        width: 150,
+        crop: 'scale'
+    })
+
+
     const { name, email, password } = req.body
+
     const user = await User.create({
         name,
         email,
         password,
         avatar: {
-            public_id: 'people/boy-snow-hoodie',
-            url: 'https://res.cloudinary.com/variety-stationers-and-sports/image/upload/v1622395643/samples/people/boy-snow-hoodie.jpg'
+            public_id: result.public_id,
+            url: result.secure_url
         }
     })
 

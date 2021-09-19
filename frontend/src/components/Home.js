@@ -3,7 +3,6 @@ import MetaData from './layout/MetaData'
 import Pagination from 'react-js-pagination'
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css';
-import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../actions/productsAction'

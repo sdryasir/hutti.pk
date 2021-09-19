@@ -39,6 +39,7 @@ const Login = () => {
 
     return (
         <>
+            <MetaData title="Login | hutti.pk" />
             {
                 loading ? <Loader /> : <div className="container container-fluid">
                     <div className="row wrapper">
@@ -77,7 +78,7 @@ const Login = () => {
                                     LOGIN
                                 </button>
 
-                                <Link to="#" className="float-right mt-3">New User?</Link>
+                                <Link to="/account/register" className="float-right mt-3">New User?</Link>
                             </form>
                         </div>
                     </div>
